@@ -1,13 +1,17 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import topics from "../../data/topics.json";
+
 import EventLoop from "../eventLoop";
 import JavascriptVarLetConst from "../javascriptVarLetConst";
+import DataTypes from "../dataTypes";
+
 import NotFound from "../notFound";
 
 const topicComponentMap = {
     EventLoop,
     JavascriptVarLetConst,
+    DataTypes,
 };
 
 const StandaloneNote = () => {

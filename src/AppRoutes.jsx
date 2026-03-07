@@ -9,12 +9,14 @@ const EventLoop = lazy(() => import("./pages/eventLoop"));
 const JavascriptVarLetConst = lazy(
     () => import("./pages/javascriptVarLetConst"),
 );
+const DataTypes = lazy(() => import("./pages/dataTypes"));
 
 const StandaloneNote = lazy(() => import("./pages/standaloneNote"));
 
 const topicComponentMap = {
     EventLoop,
     JavascriptVarLetConst,
+    DataTypes,
 };
 
 const PageLoader = () => {
