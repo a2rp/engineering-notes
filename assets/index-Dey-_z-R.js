@@ -1,4 +1,4 @@
-import{c as r,j as e}from"./index-Dxf9_ekj.js";const s={Wrapper:r.div`
+import{c as r,j as e}from"./index-6uQLnXvX.js";const s={Wrapper:r.div`
         max-width: 900px;
         margin: 40px auto;
         padding: 28px;
