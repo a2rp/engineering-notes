@@ -1,0 +1,1 @@
+import{u as r,t as p,j as o,N as s}from"./index-9RHsyXg8.js";import c from"./index-7mqD_yW0.js";import m from"./index-D-l_CjDA.js";const i={EventLoop:c,JavascriptVarLetConst:m},d=()=>{const{slug:a}=r(),t=p.find(e=>e.path.replace("/","")===a);if(!t)return o.jsx(s,{});const n=i[t.componentName];return n?o.jsx(n,{}):o.jsx(s,{})};export{d as default};
