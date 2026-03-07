@@ -10,6 +10,8 @@ const JavascriptVarLetConst = lazy(
     () => import("./pages/javascriptVarLetConst"),
 );
 
+const StandaloneNote = lazy(() => import("./pages/standaloneNote"));
+
 const topicComponentMap = {
     EventLoop,
     JavascriptVarLetConst,
@@ -54,6 +56,7 @@ const AppRoutes = () => {
                     );
                 })}
 
+                <Route path="/standalone/:slug" element={<StandaloneNote />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Suspense>
