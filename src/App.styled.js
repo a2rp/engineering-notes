@@ -10,6 +10,12 @@ export const Styled = {
         color: var(--color-text-primary);
     `,
 
+    StandaloneWrapper: styled.div`
+        min-height: 100vh;
+        background: var(--color-bg);
+        color: var(--color-text-primary);
+    `,
+
     Header: styled.header`
         height: 60px;
         overflow: hidden;

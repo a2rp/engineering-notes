@@ -1,19 +1,22 @@
-import React, { useEffect, useRef, useState, useMemo } from "react";
+import React, { useMemo, useRef, useState } from "react";
+import { useLocation, NavLink } from "react-router-dom";
+import { FiSearch, FiX } from "react-icons/fi";
 import { Styled } from "./App.styled";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import GoToTop from "./components/goToTop";
 import AppRoutes from "./AppRoutes";
-import { NavLink } from "react-router-dom";
-import { FiSearch, FiX } from "react-icons/fi";
 import topics from "./data/topics.json";
 import { formatTopicDateTime, sortTopicsByLatest } from "./data/topicUtils";
 
 const App = () => {
+    const location = useLocation();
     const scrollerRef = useRef(null);
 
     const [displaySlider, setDisplaySlider] = useState(true);
     const [search, setSearch] = useState("");
+
+    const isStandaloneRoute = location.pathname.startsWith("/standalone/");
 
     const handleSliderToggleClick = () => {
         setDisplaySlider((prev) => !prev);
@@ -22,10 +25,6 @@ const App = () => {
     const handleClearSearch = () => {
         setSearch("");
     };
-
-    useEffect(() => {
-        console.log(displaySlider, "displaySlider");
-    }, [displaySlider]);
 
     const filteredTopics = useMemo(() => {
         const latestSortedTopics = sortTopicsByLatest(topics);
@@ -36,6 +35,14 @@ const App = () => {
             topic.title.toLowerCase().includes(search.toLowerCase()),
         );
     }, [search]);
+
+    if (isStandaloneRoute) {
+        return (
+            <Styled.StandaloneWrapper>
+                <AppRoutes />
+            </Styled.StandaloneWrapper>
+        );
+    }
 
     return (
         <Styled.Wrapper>

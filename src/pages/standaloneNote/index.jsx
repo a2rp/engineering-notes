@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import topics from "../../data/topics.json";
-import { Styled } from "./styled";
 import EventLoop from "../eventLoop";
 import JavascriptVarLetConst from "../javascriptVarLetConst";
 import NotFound from "../notFound";
@@ -28,13 +27,7 @@ const StandaloneNote = () => {
         return <NotFound />;
     }
 
-    return (
-        <Styled.Wrapper>
-            <Styled.Inner>
-                <TopicComponent />
-            </Styled.Inner>
-        </Styled.Wrapper>
-    );
+    return <TopicComponent />;
 };
 
 export default StandaloneNote;
