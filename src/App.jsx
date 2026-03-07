@@ -6,7 +6,7 @@ import GoToTop from "./components/goToTop";
 import AppRoutes from "./AppRoutes";
 import { NavLink } from "react-router-dom";
 import { FiSearch, FiX } from "react-icons/fi";
-import { topics } from "./data/topics";
+import topics from "./data/topics.json";
 import { formatTopicDateTime, sortTopicsByLatest } from "./data/topicUtils";
 
 const App = () => {

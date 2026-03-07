@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Box, CircularProgress, Typography } from "@mui/material";
-import { topics } from "./data/topics";
+import topics from "./data/topics.json";
 import NotFound from "./pages/notFound";
 
 const About = lazy(() => import("./components/about"));

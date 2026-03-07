@@ -1,4 +1,4 @@
-import { topics } from "./topics";
+import topics from "./topics.json";
 
 export const sortTopicsByLatest = (items = []) => {
     return [...items].sort(
