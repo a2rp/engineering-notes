@@ -1,4 +1,4 @@
-import{c as e,j as r,e as o,b as a,L as t,i,k as n}from"./index-BdKxDW0E.js";const s={Wrapper:e.section`
+import{c as e,j as r,e as o,b as a,L as t,i,k as n}from"./index-CTU5UNah.js";const s={Wrapper:e.section`
         min-height: 100vh;
         display: grid;
         place-items: center;
