@@ -1,5 +1,10 @@
 [
     {
+        "title": "JavaScript Closures",
+        "path": "/closures",
+        "addedOn": "2026-03-08T12:12:00+05:30"
+    },
+    {
         "title": "Hoisting",
         "path": "/hoisting",
         "addedOn": "2026-03-08T11:09:00+05:30"
