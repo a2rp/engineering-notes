@@ -6,8 +6,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import GoToTop from "./components/goToTop";
 import AppRoutes from "./AppRoutes";
-import topics from "./data/topics.json";
-import { formatTopicDateTime, sortTopicsByLatest } from "./data/topicUtils";
+import notes, { formatTopicDateTime } from "./lib/notesRegistry";
 
 const App = () => {
     const location = useLocation();
@@ -27,12 +26,12 @@ const App = () => {
     };
 
     const filteredTopics = useMemo(() => {
-        const latestSortedTopics = sortTopicsByLatest(topics);
+        if (!search.trim()) {
+            return notes;
+        }
 
-        if (!search.trim()) return latestSortedTopics;
-
-        return latestSortedTopics.filter((topic) =>
-            topic.title.toLowerCase().includes(search.toLowerCase()),
+        return notes.filter((note) =>
+            note.title.toLowerCase().includes(search.toLowerCase()),
         );
     }, [search]);
 
@@ -80,15 +79,15 @@ const App = () => {
                     </div>
 
                     <div className="menuSliderInner">
-                        {filteredTopics.map((topic) => {
-                            const firstLetter = topic.title
+                        {filteredTopics.map((note) => {
+                            const firstLetter = note.title
                                 .charAt(0)
                                 .toUpperCase();
 
                             return (
                                 <NavLink
-                                    key={topic.path}
-                                    to={topic.path}
+                                    key={note.path}
+                                    to={note.path}
                                     className={({ isActive }) =>
                                         `menuLink ${isActive ? "active" : ""}`
                                     }
@@ -99,11 +98,12 @@ const App = () => {
 
                                     <span className="menuLinkContent">
                                         <span className="menuLinkText">
-                                            {topic.title}
+                                            {note.title}
                                         </span>
+
                                         <span className="menuLinkMeta">
                                             Added{" "}
-                                            {formatTopicDateTime(topic.addedOn)}
+                                            {formatTopicDateTime(note.addedOn)}
                                         </span>
                                     </span>
                                 </NavLink>

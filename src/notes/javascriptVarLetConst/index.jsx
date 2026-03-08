@@ -1,6 +1,12 @@
 import React from "react";
 import { Styled } from "./styled";
 
+export const noteMeta = {
+    title: "Variables: var let const",
+    path: "/js-variables",
+    addedOn: "2026-03-07T22:10:00+05:30",
+};
+
 const JavascriptVarLetConst = () => {
     return (
         <Styled.Wrapper className="topicWrapper">

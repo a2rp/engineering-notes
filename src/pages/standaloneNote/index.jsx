@@ -1,37 +1,26 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useParams } from "react-router-dom";
-import topics from "../../data/topics.json";
-
-import EventLoop from "../eventLoop";
-import JavascriptVarLetConst from "../javascriptVarLetConst";
-import DataTypes from "../dataTypes";
-
+import notes from "../../lib/notesRegistry";
 import NotFound from "../notFound";
-
-const topicComponentMap = {
-    EventLoop,
-    JavascriptVarLetConst,
-    DataTypes,
-};
 
 const StandaloneNote = () => {
     const { slug } = useParams();
 
-    const matchedTopic = topics.find(
-        (topic) => topic.path.replace("/", "") === slug,
+    const matchedNote = notes.find(
+        (note) => note.path.replace("/", "") === slug,
     );
 
-    if (!matchedTopic) {
+    if (!matchedNote) {
         return <NotFound />;
     }
 
-    const TopicComponent = topicComponentMap[matchedTopic.componentName];
+    const NoteComponent = matchedNote.Component;
 
-    if (!TopicComponent) {
-        return <NotFound />;
-    }
-
-    return <TopicComponent />;
+    return (
+        <Suspense fallback={null}>
+            <NoteComponent />
+        </Suspense>
+    );
 };
 
 export default StandaloneNote;

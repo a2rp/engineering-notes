@@ -1,23 +1,11 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Box, CircularProgress, Typography } from "@mui/material";
-import topics from "./data/topics.json";
-import NotFound from "./pages/notFound";
+import notes from "./lib/notesRegistry";
 
 const About = lazy(() => import("./components/about"));
-const EventLoop = lazy(() => import("./pages/eventLoop"));
-const JavascriptVarLetConst = lazy(
-    () => import("./pages/javascriptVarLetConst"),
-);
-const DataTypes = lazy(() => import("./pages/dataTypes"));
-
+const NotFound = lazy(() => import("./pages/notFound"));
 const StandaloneNote = lazy(() => import("./pages/standaloneNote"));
-
-const topicComponentMap = {
-    EventLoop,
-    JavascriptVarLetConst,
-    DataTypes,
-};
 
 const PageLoader = () => {
     return (
@@ -43,17 +31,14 @@ const AppRoutes = () => {
             <Routes>
                 <Route path="/" element={<About />} />
 
-                {topics.map((topic) => {
-                    const TopicComponent =
-                        topicComponentMap[topic.componentName];
-
-                    if (!TopicComponent) return null;
+                {notes.map((note) => {
+                    const NoteComponent = note.Component;
 
                     return (
                         <Route
-                            key={topic.path}
-                            path={topic.path}
-                            element={<TopicComponent />}
+                            key={note.path}
+                            path={note.path}
+                            element={<NoteComponent />}
                         />
                     );
                 })}

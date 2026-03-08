@@ -1,6 +1,12 @@
 import React from "react";
 import { Styled } from "./styled";
 
+export const noteMeta = {
+    title: "Event Loop",
+    path: "/event-loop",
+    addedOn: "2026-03-07T20:10:00+05:30",
+};
+
 const EventLoop = () => {
     return (
         <Styled.Wrapper className="topicWrapper">
