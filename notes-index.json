@@ -1,5 +1,15 @@
 [
     {
+        "title": "Execution Context",
+        "path": "/execution-context",
+        "addedOn": "2026-03-08T12:40:00+05:30"
+    },
+    {
+        "title": "Scope Chain",
+        "path": "/scope-chain",
+        "addedOn": "2026-03-08T12:25:00+05:30"
+    },
+    {
         "title": "JavaScript Closures",
         "path": "/closures",
         "addedOn": "2026-03-08T12:12:00+05:30"

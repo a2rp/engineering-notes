@@ -1,0 +1,1 @@
+import{u as a,n as r,j as t,r as p}from"./index-zSgTrJtK.js";import u from"./index-DKpAieB5.js";const m=()=>{const{slug:s}=a(),o=r.find(n=>n.path.replace("/","")===s);if(!o)return t.jsx(u,{});const e=o.Component;return t.jsx(p.Suspense,{fallback:null,children:t.jsx(e,{})})};export{m as default};
