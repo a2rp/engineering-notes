@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, NavLink } from "react-router-dom";
 import { FiSearch, FiX } from "react-icons/fi";
 import { Styled } from "./App.styled";
@@ -24,6 +24,10 @@ const App = () => {
     const handleClearSearch = () => {
         setSearch("");
     };
+
+    useEffect(() => {
+        scrollerRef.current?.scrollTo({ top: 0, behavior: "auto" });
+    }, [location.pathname]);
 
     const filteredTopics = useMemo(() => {
         if (!search.trim()) {

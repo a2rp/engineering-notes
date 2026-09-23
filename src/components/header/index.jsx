@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Styled } from "./styled";
-import blackBgLogo from "/images/blackBgLogo.png";
+import logo from "/logo.png";
 import { FiMoon, FiSun, FiBookOpen, FiEdit3, FiPenTool } from "react-icons/fi";
 import { IoIosMenu } from "react-icons/io";
 import { NavLink } from "react-router-dom";
@@ -59,11 +59,10 @@ const Header = ({ handleSliderToggleClick }) => {
                                 )}
 
                                 <img
-                                    src={blackBgLogo}
-                                    alt="engineering-notes"
+                                src={logo}
+                                alt="Engineering Notes logo"
                                     onLoad={() => setLogoLoaded(true)}
                                     style={{ opacity: logoLoaded ? 1 : 0 }}
-                                    loading="lazy"
                                 />
                             </div>
 

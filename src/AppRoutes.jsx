@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Box, CircularProgress, Typography } from "@mui/material";
 import notes from "./lib/notesRegistry";
 
@@ -26,8 +26,10 @@ const PageLoader = () => {
 };
 
 const AppRoutes = () => {
+    const location = useLocation();
+
     return (
-        <Suspense fallback={<PageLoader />}>
+        <Suspense key={location.pathname} fallback={<PageLoader />}>
             <Routes>
                 <Route path="/" element={<About />} />
 
