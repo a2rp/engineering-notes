@@ -2,7 +2,7 @@
 
 A searchable React notes app for technical learning, interview preparation, and revisiting practical engineering concepts.
 
-![Engineering Notes screenshot](screenshot.png)
+![Engineering Notes screenshot](./screenshot.jpg)
 
 ## Features
 
