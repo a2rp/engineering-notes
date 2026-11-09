@@ -1,12 +1,6 @@
 import React from "react";
 import { Styled } from "./styled";
 
-export const noteMeta = {
-    title: "JavaScript Closures",
-    path: "/closures",
-    addedOn: "2026-03-08T12:12:00+05:30",
-};
-
 const Closures = () => {
     return (
         <Styled.Wrapper className="topicWrapper">

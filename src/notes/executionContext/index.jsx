@@ -1,12 +1,6 @@
 import React from "react";
 import { Styled } from "./styled";
 
-export const noteMeta = {
-    title: "Execution Context",
-    path: "/execution-context",
-    addedOn: "2026-03-08T12:40:00+05:30",
-};
-
 const ExecutionContext = () => {
     return (
         <Styled.Wrapper className="topicWrapper">

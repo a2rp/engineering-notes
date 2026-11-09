@@ -1,20 +1,21 @@
 import { lazy } from "react";
 
-const noteMetaModules = import.meta.glob("../notes/**/index.jsx", {
+const noteMetaModules = import.meta.glob("../notes/**/meta.json", {
     eager: true,
-    import: "noteMeta",
+    import: "default",
 });
 
 const noteComponentModules = import.meta.glob("../notes/**/index.jsx");
 
 const getNoteKeyFromPath = (filePath) => {
-    return filePath.replace("../notes/", "").replace("/index.jsx", "");
+    return filePath.replace("../notes/", "").replace("/meta.json", "");
 };
 
 const notes = Object.entries(noteMetaModules)
     .map(([filePath, meta]) => {
         const key = getNoteKeyFromPath(filePath);
-        const loader = noteComponentModules[filePath];
+        const componentPath = filePath.replace("/meta.json", "/index.jsx");
+        const loader = noteComponentModules[componentPath];
 
         if (!meta || !meta.title || !meta.path || !meta.addedOn || !loader) {
             return null;

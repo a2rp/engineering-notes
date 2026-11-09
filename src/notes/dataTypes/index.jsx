@@ -1,12 +1,6 @@
 import React from "react";
 import { Styled } from "./styled";
 
-export const noteMeta = {
-    title: "Data Types",
-    path: "/data-types",
-    addedOn: "2026-03-08T10:30:00+05:30",
-};
-
 const DataTypes = () => {
     return (
         <Styled.Wrapper className="topicWrapper">

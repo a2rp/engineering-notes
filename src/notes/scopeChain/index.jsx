@@ -1,12 +1,6 @@
 import React from "react";
 import { Styled } from "./styled";
 
-export const noteMeta = {
-    title: "Scope Chain",
-    path: "/scope-chain",
-    addedOn: "2026-03-08T12:25:00+05:30",
-};
-
 const ScopeChain = () => {
     return (
         <Styled.Wrapper className="topicWrapper">
