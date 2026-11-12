@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Styled } from "./styled";
 import logo from "/logo.png";
 import { FiMoon, FiSun, FiBookOpen, FiEdit3, FiPenTool } from "react-icons/fi";
@@ -7,21 +7,17 @@ import { NavLink } from "react-router-dom";
 
 const THEME_LS_KEY = "engineering-notes-theme";
 
-const Header = ({ handleSliderToggleClick }) => {
+const getInitialTheme = () => {
+    try {
+        return localStorage.getItem(THEME_LS_KEY) === "light" ? "light" : "dark";
+    } catch {
+        return "dark";
+    }
+};
+
+const Header = ({ handleSliderToggleClick, isSliderOpen }) => {
     const [logoLoaded, setLogoLoaded] = useState(false);
-    const [theme, setTheme] = useState("dark");
-
-    useEffect(() => {
-        const storedTheme = localStorage.getItem(THEME_LS_KEY);
-        const initialTheme = storedTheme || "dark";
-        setTheme(initialTheme);
-
-        if (initialTheme === "light") {
-            document.documentElement.setAttribute("data-theme", "light");
-        } else {
-            document.documentElement.removeAttribute("data-theme");
-        }
-    }, []);
+    const [theme, setTheme] = useState(getInitialTheme);
 
     useEffect(() => {
         if (theme === "light") {
@@ -30,12 +26,14 @@ const Header = ({ handleSliderToggleClick }) => {
             document.documentElement.removeAttribute("data-theme");
         }
 
-        localStorage.setItem(THEME_LS_KEY, theme);
+        try {
+            localStorage.setItem(THEME_LS_KEY, theme);
+        } catch {
+            // Theme switching still works for the current session.
+        }
     }, [theme]);
 
-    const nextTheme = useMemo(() => {
-        return theme === "light" ? "dark" : "light";
-    }, [theme]);
+    const nextTheme = theme === "light" ? "dark" : "light";
 
     const handleToggle = () => {
         setTheme(nextTheme);
@@ -46,12 +44,16 @@ const Header = ({ handleSliderToggleClick }) => {
             <Styled.Main>
                 <div className="leftSide">
                     <div className="toggleButtonLogoNameWrapper">
-                        <div
+                        <button
+                            type="button"
                             className="toggleButton"
                             onClick={handleSliderToggleClick}
+                            aria-label={isSliderOpen ? "Hide topic navigation" : "Show topic navigation"}
+                            aria-expanded={isSliderOpen}
+                            aria-controls="topics-sidebar"
                         >
                             <IoIosMenu size={32} />
-                        </div>
+                        </button>
                         <NavLink className={"logoNameWrapper"} to="/">
                             <div className="logoWrapper">
                                 {!logoLoaded && (

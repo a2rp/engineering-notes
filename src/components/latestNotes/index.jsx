@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Styled } from "./styled";
-import { getLatestTopics, formatTopicDateTime } from "../../data/topicUtils";
+import notes, { formatTopicDateTime } from "../../lib/notesRegistry";
 
 const LatestNotes = ({ limit = 5, heading = "Latest Added Notes" }) => {
-    const latestTopics = getLatestTopics(limit);
+    const latestTopics = notes.slice(0, limit);
 
     return (
         <Styled.Wrapper>

@@ -63,6 +63,14 @@ export const Styled = {
         }
 
         .toggleButton {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: inherit;
+            font: inherit;
             cursor: pointer;
         }
 

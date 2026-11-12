@@ -50,11 +50,17 @@ const App = () => {
     return (
         <Styled.Wrapper>
             <Styled.Header>
-                <Header handleSliderToggleClick={handleSliderToggleClick} />
+                <Header
+                    handleSliderToggleClick={handleSliderToggleClick}
+                    isSliderOpen={displaySlider}
+                />
             </Styled.Header>
 
             <Styled.Main>
                 <div
+                    id="topics-sidebar"
+                    role="navigation"
+                    aria-label="Topic navigation"
                     className={`menuSlider ${displaySlider ? "" : "hideMenuSlider"}`}
                 >
                     <div className="searchWrapper">
@@ -63,6 +69,7 @@ const App = () => {
 
                             <input
                                 type="text"
+                                aria-label="Search topics"
                                 placeholder="Search topics..."
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
